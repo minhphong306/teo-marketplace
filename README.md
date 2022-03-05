@@ -16,3 +16,7 @@ Below is list services:
 ### Service map
 Sử dụng file drawio
 ![](assets/flow-charts/overview.drawio.png)
+
+### Resource
+- [Wanago tutorials](https://wanago.io/2020/06/01/api-nestjs-error-handling-validation/)
+- [Fix issue run with nx](https://github.com/nrwl/nx/issues/9168)
