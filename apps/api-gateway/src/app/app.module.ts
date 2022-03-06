@@ -7,6 +7,7 @@ import {ConfigModule} from "@nestjs/config";
 import * as Joi from '@hapi/joi'
 import {DatabaseModule} from "../modules/database/database.module";
 import {envFilePath} from "../utils/env";
+import {AuthenticationModule} from "../modules/authentication/authentication.module";
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import {envFilePath} from "../utils/env";
       })
     }),
     DatabaseModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
