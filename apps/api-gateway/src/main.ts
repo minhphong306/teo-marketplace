@@ -7,8 +7,12 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
+import {envFilePath} from "./utils/env";
 
 async function bootstrap() {
+  console.log('Env file path: ');
+  console.log(envFilePath)
+
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
