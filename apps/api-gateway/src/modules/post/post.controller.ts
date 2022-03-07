@@ -1,5 +1,6 @@
-import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common'
+import {Body, Controller, Delete, Get, Param, Post, Put, UseGuards} from '@nestjs/common'
 import PostService from "./post.service";
+import JwtAuthenticationGuard from "../authentication/jwt-authentication.guard";
 
 @Controller("/posts")
 export default class PostController {
@@ -9,6 +10,7 @@ export default class PostController {
   }
 
   @Get()
+  @UseGuards(JwtAuthenticationGuard)
   getAllPosts() {
     return this.postsService.getAllPosts();
   }
