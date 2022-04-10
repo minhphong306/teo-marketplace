@@ -1,32 +1,18 @@
 version: "3"
 services:
-  postgres:
-    container_name: postgres
-    image: postgres:latest
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
     ports:
       - "5432:5432"
     volumes:
-      - "nestjs-postgres:/data/postgres"
+      - "nestjs-mysql:/data/mysql"
     env_file:
       - docker.env
     networks:
-      - postgres
-  pgadmin:
-    links:
-      - postgres:postgres
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    ports:
-      - "8080:80"
-    volumes:
-      - "nestjs-pgadmin:/root/.pgadmin"
-    env_file:
-      - docker.env
-    networks:
-      - postgres
+      - mysql
 volumes:
-  nestjs-postgres:
-  nestjs-pgadmin:
+  nestjs-mysql:
 networks:
-  postgres:
+  mysql:
     driver: bridge

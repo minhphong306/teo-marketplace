@@ -14,8 +14,10 @@ Below is list services:
 - [API gateway (backend)](assets/docs/api-gateway/README.md)
 
 ### Service map
-Sử dụng file drawio
 ![](assets/flow-charts/overview.drawio.png)
+
+## Learning notes
+
 
 ### Resource
 - [Wanago tutorials](https://wanago.io/2020/06/01/api-nestjs-error-handling-validation/)

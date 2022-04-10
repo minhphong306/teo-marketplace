@@ -1,24 +1,36 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
-@Entity()
-class User {
+@Entity('staff')
+class Staff {
   @PrimaryGeneratedColumn()
   public id?: number
 
-  @Column({ unique: true })
-  public email: string
+  @Column()
+  public name: string
 
   @Column()
-  public name: string;
-
-  @Column()
-  public password: string;
+  public status: number;
 
   @Column({
-    default: 1,
-    comment: "1-active, -1: inactive"
+    name: 'join_date',
+    nullable: false
   })
-  public status: number
+  public joinDate: Date;
+
+  @Column({
+    name: 'retired_date',
+    nullable: false
+  })
+  public retiredDate: Date;
+
+  @Column({
+    comment: '1-gamee, 2-starbots',
+    nullable: false
+  })
+  public team: number
+
+  @Column()
+  public note: string
 
   @CreateDateColumn({
     name: "created_at",
@@ -42,4 +54,4 @@ class User {
   public isDeleted: boolean
 }
 
-export default User;
+export default Staff;

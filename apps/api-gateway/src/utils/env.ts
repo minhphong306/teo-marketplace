@@ -8,15 +8,3 @@ export const basePath =
     : path.resolve(process.cwd(), 'apps', 'api-gateway');
 
 export const envFilePath = [path.join(basePath, 'env', '.env')];
-
-if (NODE_ENV === 'development') {
-  envFilePath.push(path.join(basePath, 'env', '.env-development'));
-}
-
-if (NODE_ENV === 'test') {
-  envFilePath.push(path.join(basePath, 'env', '.env-test'));
-}
-
-if (NODE_ENV === 'production') {
-  envFilePath.push(path.join(basePath, 'env', '.env-production'));
-}

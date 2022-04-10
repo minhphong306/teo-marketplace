@@ -1,24 +1,46 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
-@Entity()
-class User {
+@Entity('expend')
+class Expend {
   @PrimaryGeneratedColumn()
   public id?: number
 
-  @Column({ unique: true })
-  public email: string
-
-  @Column()
-  public name: string;
-
-  @Column()
-  public password: string;
+  @Column({
+    name: 'created_user_id',
+    nullable: false
+  })
+  public createdUserId: number
 
   @Column({
-    default: 1,
-    comment: "1-active, -1: inactive"
+    nullable: false
   })
-  public status: number
+  public name: string
+
+  @Column({
+    comment: '1-revenue, 2-expend',
+    nullable: false
+  })
+  public type: number
+
+  @Column({
+    comment: '1-gamee, 2-starbots',
+    nullable: false
+  })
+  public team: number
+
+  @Column({
+    nullable: false
+  })
+  public amount: number
+
+  @Column({
+    name: 'head_count_log',
+    nullable: false
+  })
+  public headCountLog: string
+
+  @Column()
+  public note: string
 
   @CreateDateColumn({
     name: "created_at",
@@ -42,4 +64,4 @@ class User {
   public isDeleted: boolean
 }
 
-export default User;
+export default Expend;

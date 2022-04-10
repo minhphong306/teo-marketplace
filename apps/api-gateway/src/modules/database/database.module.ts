@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import Post from "../post/entities/post.entity";
 import User from "../user/entity/user.entity";
+import Staff from "../staff/entity/staff.entity";
+import Expend from "../expend/entity/expend.entity";
 
 @Module({
   imports: [
@@ -10,15 +12,17 @@ import User from "../user/entity/user.entity";
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.get('POSTGRES_HOST'),
-        port: configService.get('POSTGRES_PORT'),
-        username: configService.get('POSTGRES_USER'),
-        password: configService.get('POSTGRES_PASSWORD'),
-        database: configService.get('POSTGRES_DB'),
+        type: 'mysql',
+        host: configService.get('MYSQL_HOST'),
+        port: configService.get('MYSQL_PORT'),
+        username: configService.get('MYSQL_USER'),
+        password: configService.get('MYSQL_PASSWORD'),
+        database: configService.get('MYSQL_DB'),
         entities: [
           Post,
-          User
+          User,
+          Staff,
+          Expend
         ],
         synchronize: true,
       })
